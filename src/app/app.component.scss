@@ -1,0 +1,18 @@
+.main-content {
+  // No desktop, empurra o conteúdo 370px para a direita (largura do seu header)
+  margin-left: 370px;
+  transition: all 0.4s ease;
+  min-height: 100vh;
+  background-color: #0a0a0b; // Mantém o fundo escuro consistente
+
+  // Remove o espaçamento no mobile, pois o menu fica escondido ou por cima (overlay)
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+}
+
+// Estilo opcional para as seções terem um espaçamento interno padrão
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
