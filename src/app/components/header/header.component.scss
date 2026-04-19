@@ -11,6 +11,7 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  will-change: transform, left;
 
   .profile {
     text-align: center;
@@ -149,10 +150,22 @@
 
 // Responsividade
 @media (max-width: 1024px) {
-  .menu-mobile { display: block; }
+  .menu-mobile { 
+    display: block; 
+  }
 
   #header {
     left: -300px;
-    &.show { left: 0; }
+    // AQUI ESTÁ A CHAVE:
+    visibility: hidden; // Desativa interações e sobreposição
+    opacity: 0; // Ajuda na transição suave
+    pointer-events: none; // Garante que nenhum clique passe para ele
+
+    &.show { 
+      left: 0; 
+      visibility: visible; // Reativa quando o menu abre
+      opacity: 1;
+      pointer-events: all; // Reativa cliques
+    }
   }
 }
