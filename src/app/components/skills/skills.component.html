@@ -1,1 +1,61 @@
-<p>skills works!</p>
+<section id="habilidades" class="skills-section">
+  <div class="container" @fadeInUp>
+    <div class="section-title">
+      <span>02.</span>
+      <h2>Habilidades Técnicas</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3><i class="bi bi-chip"></i> Hardware & Embedded</h3>
+        <div class="skills-grid">
+          @for (skill of hardwareSkills(); track skill.name) {
+            <div class="skill-card">
+              <div class="card-glow"></div>
+              <i [class]="'bi ' + skill.icon"></i>
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
+              <span class="skill-perc">{{ skill.level }}%</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="bi bi-code-slash"></i> Software & Cloud</h3>
+        <div class="skills-grid">
+          @for (skill of softwareSkills(); track skill.name) {
+            <div class="skill-card">
+              <div class="card-glow"></div>
+              <i [class]="'bi ' + skill.icon"></i>
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill software" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
+              <span class="skill-perc">{{ skill.level }}%</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="soft-skills-section">
+      <h3>Atributos Interpessoais</h3>
+      <div class="soft-grid">
+        @for (skill of softSkills(); track skill.name) {
+          <div class="soft-tag">
+            <i [class]="'bi ' + skill.icon"></i>
+            <span>{{ skill.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
