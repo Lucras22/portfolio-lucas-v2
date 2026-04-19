@@ -1,5 +1,5 @@
 <section id="habilidades" class="skills-section">
-  <div class="container" @fadeInUp>
+  <div class="container">
     <div class="section-title">
       <span>02.</span>
       <h2>Habilidades Técnicas</h2>
@@ -12,12 +12,13 @@
         <div class="skills-grid">
           @for (skill of hardwareSkills(); track skill.name) {
             <div class="skill-card">
-              <div class="card-glow"></div>
               <i [class]="'bi ' + skill.icon"></i>
               <div class="skill-info">
                 <span class="skill-name">{{ skill.name }}</span>
                 <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
+                  <div class="skill-bar-fill" 
+                       [style.width]="barsAnimated() ? skill.level + '%' : '0%'">
+                  </div>
                 </div>
               </div>
               <span class="skill-perc">{{ skill.level }}%</span>
@@ -31,12 +32,13 @@
         <div class="skills-grid">
           @for (skill of softwareSkills(); track skill.name) {
             <div class="skill-card">
-              <div class="card-glow"></div>
               <i [class]="'bi ' + skill.icon"></i>
               <div class="skill-info">
                 <span class="skill-name">{{ skill.name }}</span>
                 <div class="skill-bar-bg">
-                  <div class="skill-bar-fill software" [style.width.%]="skill.level"></div>
+                  <div class="skill-bar-fill software" 
+                       [style.width]="barsAnimated() ? skill.level + '%' : '0%'">
+                  </div>
                 </div>
               </div>
               <span class="skill-perc">{{ skill.level }}%</span>
