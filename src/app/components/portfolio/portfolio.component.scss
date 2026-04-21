@@ -1,0 +1,93 @@
+.portfolio-section {
+  padding: 100px 0;
+  background: #0a0a0b;
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    span { color: #32CD32; font-family: 'Courier New', monospace; font-size: 1.2rem; }
+    h2 { font-size: 2rem; font-weight: 700; color: #fff; margin: 0; }
+    .line { height: 1px; flex-grow: 1; background: rgba(255, 255, 255, 0.1); max-width: 300px; }
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #161618;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.4s;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba(50, 205, 50, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    .card-image img { transform: scale(1.1); filter: blur(2px) grayscale(50%); }
+    .card-overlay { opacity: 1; }
+  }
+
+  .card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 11, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.3s;
+
+      .links {
+        display: flex;
+        gap: 20px;
+        a {
+          color: #32CD32;
+          font-size: 1.8rem;
+          transition: 0.3s;
+          &:hover { color: #fff; transform: scale(1.2); }
+        }
+      }
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+
+    .tags {
+      margin-bottom: 12px;
+      .tag {
+        font-size: 0.7rem;
+        background: rgba(50, 205, 50, 0.1);
+        color: #32CD32;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-right: 8px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+
+    h3 { color: #fff; font-size: 1.3rem; margin-bottom: 10px; }
+    p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; margin: 0; }
+  }
+}
