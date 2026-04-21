@@ -1,0 +1,91 @@
+.footer-section {
+  padding: 50px 0 30px;
+  background: var(--bg-dark);
+  border-top: 1px solid var(--glass);
+  position: relative;
+  z-index: 10;
+
+  @media (min-width: 1025px) {
+    margin-left: 300px; // A mesma largura do seu menu lateral
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    padding: 0 20px;
+  }
+}
+
+.footer-brand {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: var(--neon-green);
+  }
+  p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  a {
+    color: var(--text-gray);
+    font-size: 1.3rem;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      color: var(--neon-green);
+      transform: translateY(-5px);
+      filter: drop-shadow(0 0 8px var(--neon-green));
+    }
+  }
+}
+
+.footer-copyright {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  .line-detail {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--glass), var(--neon-green), var(--glass), transparent);
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    strong { color: #fff; }
+  }
+
+  .tech-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--neon-green);
+    opacity: 0.6;
+    letter-spacing: 1px;
+    display: block;
+  }
+}
+
+// Responsividade
+@media (max-width: 991px) {
+  .footer-section {
+    margin-left: 0;
+    padding-bottom: 50px; // Espaço para o menu mobile se necessário
+  }
+}
