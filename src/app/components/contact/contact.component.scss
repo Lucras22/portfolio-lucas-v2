@@ -1,0 +1,183 @@
+.contact-section {
+  padding: 80px 0;
+  
+  .contact-container {
+    max-width: 1100px;
+    margin-left: 0;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    display: flex; align-items: center; gap: 15px; margin-bottom: 40px;
+    span { color: var(--neon-green); font-family: 'Courier New', monospace; font-size: 1.2rem; }
+    .line { height: 1px; flex-grow: 1; background: var(--glass); max-width: 200px; }
+  }
+}
+
+// Wrapper Principal
+.contact-grid-wrapper {
+  display: flex;
+  align-items: stretch; // Garante mesma altura
+  justify-content: center;
+  gap: 0; // O espaço será controlado pela ponte
+  position: relative;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.contact-column {
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+// Ponte Tecnológica entre os cards
+.tech-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  position: relative;
+
+  @media (max-width: 991px) { display: none; }
+
+  .bridge-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--neon-green), transparent, var(--neon-green));
+    opacity: 0.3;
+  }
+
+  .bridge-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--neon-green);
+    transform: rotate(45deg);
+    background: var(--bg-dark);
+    box-shadow: 0 0 10px var(--neon-green);
+  }
+}
+
+// Estilo Terminal no topo dos cards
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--glass);
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--neon-green);
+    animation: blink 2s infinite;
+  }
+
+  .terminal-title {
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    color: var(--text-gray);
+    letter-spacing: 1px;
+  }
+}
+
+.tech-card {
+  padding: 2rem !important;
+  background: var(--card-dark);
+  border: 1px solid var(--glass);
+  border-radius: 12px;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: rgba(50, 205, 50, 0.3);
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.info-block {
+  h4 {
+    font-size: 0.65rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    i { color: var(--neon-green); }
+  }
+  p, a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .wa-link:hover { color: var(--neon-green); text-shadow: 0 0 5px var(--neon-green); }
+}
+
+.map-wrapper {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--glass);
+  filter: grayscale(1) invert(0.9) contrast(1.2) opacity(0.6);
+  height: 140px;
+  transition: 0.3s;
+  &:hover { filter: grayscale(0) invert(0) contrast(1) opacity(1); }
+}
+
+.tech-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass);
+  border-radius: 4px;
+  padding: 10px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+
+  &:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    background: rgba(50, 205, 50, 0.02);
+  }
+}
+
+.form-label {
+  font-size: 0.6rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.tech-btn {
+  background: transparent;
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+  padding: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+
+  &:hover:not(:disabled) {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.4);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
