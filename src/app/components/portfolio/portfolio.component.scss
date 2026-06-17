@@ -39,6 +39,7 @@
     position: relative;
     height: 200px;
     overflow: hidden;
+    z-index: 1; // Cria um contexto de empilhamento básico
 
     img {
       width: 100%;
@@ -50,25 +51,54 @@
     .card-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(10, 10, 11, 0.7);
-      display: flex;
+      background: rgba(10, 10, 11, 0.75);
+      display: flex !important; // Garante que o container use flexbox
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: 0.3s;
+      pointer-events: none; // Evita que ele bloqueie o hover do card original
+      transition: opacity 0.3s ease;
+      z-index: 10;
 
       .links {
-        display: flex;
+        display: flex !important;
         gap: 20px;
+        z-index: 20;
+        
         a {
-          color: #32CD32;
+          color: #32CD32 !important;
           font-size: 1.8rem;
+          cursor: pointer;
           transition: 0.3s;
-          &:hover { color: #fff; transform: scale(1.2); }
+          display: inline-block;
+          
+          &:hover { 
+            color: #fff !important; 
+            transform: scale(1.2); 
+          }
         }
       }
     }
   }
+
+  // Quando passar o mouse no CARD, a máscara e os botões ganham vida
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba(50, 205, 50, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    .card-image img { 
+      transform: scale(1.1); 
+      filter: blur(2px) grayscale(50%); 
+    }
+    
+    .card-overlay { 
+      opacity: 1 !important; 
+      pointer-events: auto !important; // Libera os cliques nos botões do link
+    }
+  }
+
+  
 
   .card-body {
     padding: 20px;

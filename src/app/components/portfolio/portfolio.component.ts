@@ -6,8 +6,8 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  github: string;
-  demo?: string;
+  github?: string; // Alterado para opcional com o "?"
+  demo?: string;   // Já era opcional
   tags: string[];
 }
 
@@ -23,9 +23,10 @@ export class PortfolioComponent {
   projects = signal<Project[]>([
     {
       title: 'Genesis HiTech',
-      description: 'Ecosistema tecnológico fundado para desenvolver soluções disruptivas em Hardware e Software. Lidero uma equipe multidisciplinar focada em transformar desafios complexos em sistemas inteligentes e automatizados para o mercado de tecnologia.',
+      description: 'Ecosistema tecnológico fundado para desenvolver soluções disruptivas em Hardware e Software. Lidero uma equipe multidisciplinar focada em transformar desafios complexos in sistemas inteligentes e automatizados para o mercado de tecnologia.',
       image: 'assets/logo.png',
-      github: 'https://github.com/GENESIS-HITECH-GIT',
+      github: 'https://github.com/GENESIS-HITECH-GIT', 
+      demo: 'https://genesishitech.com/',
       tags: ['Startup', 'Liderança', 'TEC']
     },
     {
@@ -54,14 +55,14 @@ export class PortfolioComponent {
       description: 'Solução hidropônica com monitoramento contínuo de nutrientes e pH via sensores. Foco em aumentar a rentabilidade e supervisão precisa do cultivo.',
       image: 'assets/hidrowebnia.png',
       github: 'https://github.com/Lucras22',
-      demo: 'https://hidrowebnia.onrender.com/',
+      demo: 'https://hidrowebnia.ifce.edu.br/',
       tags: ['C++', 'Hidroponia', 'Web']
     },
     {
       title: 'Estação Meteorológica',
       description: 'Estação de baixo custo para monitoramento climático em tempo real. Ideal para pesquisas e agricultura, cobrindo desde o esquemático até a montagem final.',
       image: 'assets/estacao.png',
-      github: 'https://github.com/Lucras22/', // Ajuste o link se necessário
+      github: 'https://github.com/Lucras22/',
       tags: ['Hardware', 'Sensores', 'C++']
     },
     {
