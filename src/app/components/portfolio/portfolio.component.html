@@ -11,14 +11,22 @@
         <div class="project-card">
           <div class="card-image">
             <img [src]="project.image" [alt]="project.title">
+            
             <div class="card-overlay">
               <div class="links">
-                <a [href]="project.github" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" title="GitHub">
+                    <i class="bi bi-github"></i>
+                  </a>
+                }
                 @if (project.demo) {
-                  <a [href]="project.demo" target="_blank" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
+                  <a [href]="project.demo" target="_blank" title="Live Demo">
+                    <i class="bi bi-link-45deg"></i>
+                  </a>
                 }
               </div>
             </div>
+
           </div>
           <div class="card-body">
             <div class="tags">
